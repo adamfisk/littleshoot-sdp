@@ -16,5 +16,9 @@
         </parent>
 
     <dependencies>
+        <dependency>
+            <groupId>org.lastbamboo</groupId>
+            <artifactId>lastbamboo-common-util</artifactId>
+            </dependency>
         </dependencies>
     </project>

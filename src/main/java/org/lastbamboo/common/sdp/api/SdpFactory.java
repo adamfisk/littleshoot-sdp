@@ -1,6 +1,5 @@
 package org.lastbamboo.common.sdp.api;
 
-import java.net.InetAddress;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.text.ParseException;
@@ -33,6 +32,7 @@ import org.lastbamboo.common.sdp.fields.TimeField;
 import org.lastbamboo.common.sdp.fields.URIField;
 import org.lastbamboo.common.sdp.fields.ZoneField;
 import org.lastbamboo.common.sdp.parser.SDPAnnounceParser;
+import org.lastbamboo.common.util.NetworkUtils;
 /**
  * The SdpFactory enables applications to encode and decode SDP messages.
  * The SdpFactory can be used to construct a SessionDescription 
@@ -79,7 +79,7 @@ public class SdpFactory extends Object {
      *     v=0
      *
      *     o=this.createOrigin ("user",
-     *     InetAddress.getLocalHost().toString());
+     *     NetworkUtils.getLocalHost().toString());
      *
      *     s=-
      *
@@ -100,7 +100,7 @@ public class SdpFactory extends Object {
         OriginField originImpl=null;
         try{
             originImpl=(OriginField)this.createOrigin("user",
-            InetAddress.getLocalHost().getHostAddress());
+            NetworkUtils.getLocalHost().getHostAddress());
         }
         catch(UnknownHostException e) {e.printStackTrace();}
         sessionDescriptionImpl.setOrigin(originImpl);
