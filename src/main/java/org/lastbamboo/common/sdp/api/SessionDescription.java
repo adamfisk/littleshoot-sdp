@@ -291,5 +291,7 @@ public interface SessionDescription extends Serializable, Cloneable{
      */    
     public void setMediaDescriptions(Vector mediaDescriptions)
                           throws SdpException;
+
+    public byte[] toBytes();
 }
 

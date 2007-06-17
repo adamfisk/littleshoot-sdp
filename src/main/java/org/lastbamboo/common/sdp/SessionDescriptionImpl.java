@@ -5,6 +5,7 @@
  */
 package org.lastbamboo.common.sdp;
 
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.util.Vector;
 
@@ -34,6 +35,8 @@ import org.lastbamboo.common.sdp.fields.SessionNameField;
 import org.lastbamboo.common.sdp.fields.TimeField;
 import org.lastbamboo.common.sdp.fields.URIField;
 import org.lastbamboo.common.sdp.fields.ZoneField;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Implementation of the SessionDescription interface.
@@ -47,7 +50,10 @@ import org.lastbamboo.common.sdp.fields.ZoneField;
  *<a href="{@docRoot}/uncopyright.html">This code is in the public domain.</a>
  *
  */
-public class SessionDescriptionImpl implements SessionDescription {
+public class SessionDescriptionImpl implements SessionDescription 
+    {
+    private final Logger LOG = LoggerFactory.getLogger(getClass());
+    
 	private TimeDescriptionImpl currentTimeDescription;
 	private MediaDescriptionImpl currentMediaDescription;
 
@@ -739,4 +745,17 @@ public class SessionDescriptionImpl implements SessionDescription {
 		}
 		return encBuff.toString();
 	}
+
+    public byte[] toBytes()
+        {
+        try
+            {
+            return toString().getBytes("US-ASCII");
+            }
+        catch (final UnsupportedEncodingException e)
+            {
+            LOG.error("Should never happen", e);
+            throw new IllegalArgumentException("Bad SDP??"+this);
+            }
+        }
 }
