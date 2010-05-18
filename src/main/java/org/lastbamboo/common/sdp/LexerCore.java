@@ -4,8 +4,8 @@ import java.text.ParseException;
 import java.util.Hashtable;
 import java.util.Vector;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /** A lexical analyzer that is used by all parsers in our implementation.
  *
@@ -13,7 +13,7 @@ import org.apache.commons.logging.LogFactory;
  *@author M. Ranganathan <mranga@nist.gov>
  */
 public class LexerCore extends StringTokenizer {
-    private static final Log LOG = LogFactory.getLog (LexerCore.class);
+    private static final Logger LOG = LoggerFactory.getLogger (LexerCore.class);
 
 	// IMPORTANT - All keyword matches should be between START and END
 	public static final int START = 2048;

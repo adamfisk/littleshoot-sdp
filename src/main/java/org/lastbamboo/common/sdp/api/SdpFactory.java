@@ -10,8 +10,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.lastbamboo.common.sdp.MediaDescriptionImpl;
 import org.lastbamboo.common.sdp.SessionDescriptionImpl;
 import org.lastbamboo.common.sdp.TimeDescriptionImpl;
@@ -53,7 +53,7 @@ import org.lastbamboo.common.util.NetworkUtils;
  */
 public class SdpFactory extends Object {
 
-    private static final Log LOG = LogFactory.getLog(SdpFactory.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SdpFactory.class);
     
     // unused since findSessions() is no longer implemented
     protected static final List sessionDescriptionsList = 
