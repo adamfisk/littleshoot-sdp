@@ -32,7 +32,7 @@ import org.lastbamboo.common.sdp.fields.TimeField;
 import org.lastbamboo.common.sdp.fields.URIField;
 import org.lastbamboo.common.sdp.fields.ZoneField;
 import org.lastbamboo.common.sdp.parser.SDPAnnounceParser;
-import org.lastbamboo.common.util.NetworkUtils;
+import org.littleshoot.util.NetworkUtils;
 /**
  * The SdpFactory enables applications to encode and decode SDP messages.
  * The SdpFactory can be used to construct a SessionDescription 
